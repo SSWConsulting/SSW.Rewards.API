@@ -82,6 +82,25 @@ public class UserService : IUserService, IRolesService
             user.Roles.Add(new UserRole { Role = staffRole });
         }
 
+        var unclaimedAchievements = await _dbContext.UnclaimedAchievements
+            .Where(ua => ua.EmailAddress.ToLower() == user.Email.ToLower())
+            .ToListAsync();
+
+        if (unclaimedAchievements.Any())
+        {
+            foreach (var achievement in unclaimedAchievements)
+            {
+                user.UserAchievements.Add(new UserAchievement
+                {
+                    Achievement = achievement.Achievement,
+                    AwardedAt = DateTime.UtcNow,
+                    CreatedUtc = DateTime.UtcNow
+                });
+
+                _dbContext.UnclaimedAchievements.Remove(achievement);
+            }
+        }
+
         _dbContext.Users.Add(user);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
