@@ -62,6 +62,7 @@ public class UserService : IUserService, IRolesService
 
     public async Task<int> CreateUser(User user, CancellationToken cancellationToken)
     {
+        // TODO: Move this check to a command validator
         if (await _dbContext.Users.AnyAsync(u => u.Email == user.Email))
         {
             throw new AlreadyExistsException($"User {user.Email} already exists");
