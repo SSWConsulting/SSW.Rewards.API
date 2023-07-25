@@ -263,6 +263,47 @@
         ]
       }
     },
+    "/api/Achievement/ClaimFormCompleted": {
+      "post": {
+        "tags": [
+          "Achievement"
+        ],
+        "operationId": "Achievement_ClaimFormCompleted",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "integrationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/AdminTest/Admin": {
       "get": {
         "tags": [
