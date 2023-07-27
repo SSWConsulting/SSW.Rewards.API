@@ -263,6 +263,39 @@
         ]
       }
     },
+    "/api/Achievement/ClaimFormCompleted": {
+      "post": {
+        "tags": [
+          "Achievement"
+        ],
+        "operationId": "Achievement_ClaimFormCompleted",
+        "requestBody": {
+          "x-name": "command",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimFormCompletedAchievementCommand"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/AdminTest/Admin": {
       "get": {
         "tags": [
@@ -1918,6 +1951,10 @@
           "isMultiScanEnabled": {
             "type": "boolean",
             "nullable": true
+          },
+          "integrationId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -2040,6 +2077,18 @@
           },
           "isMultiscanEnabled": {
             "type": "boolean"
+          }
+        }
+      },
+      "ClaimFormCompletedAchievementCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "integrationId": {
+            "type": "string"
           }
         }
       },

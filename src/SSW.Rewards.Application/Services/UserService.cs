@@ -95,14 +95,14 @@ public class UserService : IUserService, IRolesService
         }
 
         var unclaimedAchievements = await _dbContext.UnclaimedAchievements
-            .Where(ua => ua.EmailAddress.ToLower() == user.Email.ToLower())
+            .Where(ua => ua.EmailAddress.ToLower() == newUser.Email.ToLower())
             .ToListAsync();
 
         if (unclaimedAchievements.Any())
         {
             foreach (var achievement in unclaimedAchievements)
             {
-                user.UserAchievements.Add(new UserAchievement
+                newUser.UserAchievements.Add(new UserAchievement
                 {
                     Achievement = achievement.Achievement,
                     AwardedAt = DateTime.UtcNow,
@@ -113,7 +113,7 @@ public class UserService : IUserService, IRolesService
             }
         }
 
-        _dbContext.Users.Add(user);
+        _dbContext.Users.Add(newUser);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
 

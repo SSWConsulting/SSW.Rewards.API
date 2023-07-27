@@ -69,12 +69,8 @@ public class AchievementController : ApiControllerBase
     [HttpPost]
     [AllowAnonymous]
     // TODO: Check whether we can make this authenticated
-    public async Task<ActionResult> ClaimFormCompleted([FromQuery] string email, [FromQuery] string integrationId)
+    public async Task<ActionResult> ClaimFormCompleted(ClaimFormCompletedAchievementCommand command)
     {
-        return Ok(await Mediator.Send(new ClaimFormCompletedAchievementCommand
-        {
-            Email = email,
-            IntegrationId = integrationId,
-        }));
+        return Ok(await Mediator.Send(command));
     }
 }
