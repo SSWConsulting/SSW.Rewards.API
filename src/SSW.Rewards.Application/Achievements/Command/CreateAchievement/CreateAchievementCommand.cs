@@ -23,6 +23,11 @@ public class CreateAchievementCommandHandler : IRequestHandler<CreateAchievement
 
     public async Task<AchievementAdminViewModel> Handle(CreateAchievementCommand request, CancellationToken cancellationToken)
     {
+        // TODO: This logic seems odd. We are recalling the entire achievements table, then filtering
+        // to find an achievement with a matching name. Then updating the existing achievement, matched
+        // by name, or creating a new one. Suggest removing this. The UpdateAchievementCommand is called
+        // by a different HTTP verb which ensures intent. This seems dangerous.
+        
         var existingAchievements = await _context.Achievements.ToListAsync(cancellationToken);
 
         var achievement = existingAchievements
