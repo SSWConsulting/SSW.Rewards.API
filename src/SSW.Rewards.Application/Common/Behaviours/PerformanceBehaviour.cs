@@ -42,7 +42,16 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
 
             if (!string.IsNullOrWhiteSpace(userEmail))
             {
-                userId = await _userService.GetUserId(userEmail);
+                try
+                {
+                    userId = await _userService.GetUserId(userEmail);
+                }
+                catch (Exception)
+                {
+
+                    // ignore - coould be new user
+                    // TODO: make this conditional on whether it's anonymous or the request typr
+                }
 
                 if (userId > 0)
                 {
