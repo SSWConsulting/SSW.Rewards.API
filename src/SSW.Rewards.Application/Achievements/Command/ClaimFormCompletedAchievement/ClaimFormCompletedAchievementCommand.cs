@@ -22,24 +22,31 @@ public class ClaimFormCompletedAchievementCommandHandler : IRequestHandler<Claim
 
         if (achievement is not null)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == request.Email.ToLower());
+            var user = await _dbContext.Users
+                .Include(u => u.UserAchievements)
+                .FirstOrDefaultAsync(u => u.Email.ToLower() == request.Email.ToLower());
 
             if (user is not null)
             {
-                user.UserAchievements.Add(new UserAchievement
+                if (!user.UserAchievements.Any(ua => ua.AchievementId == achievement.Id))
                 {
-                    Achievement = achievement
-                });
+                    user.UserAchievements.Add(new UserAchievement
+                    {
+                        AchievementId = achievement.Id,
+                        AwardedAt = DateTime.UtcNow,
+                    });
+                }
             }
             else
             {
-                var unclaimed = new UnclaimedAchievement
+                if (!_dbContext.UnclaimedAchievements.Any(ua => ua.EmailAddress.ToLower() == request.Email.ToLower() && ua.AchievementId == achievement.Id))
                 {
-                    Achievement = achievement,
-                    EmailAddress = request.Email
-                };
-
-                _dbContext.UnclaimedAchievements.Add(unclaimed);
+                    _dbContext.UnclaimedAchievements.Add(new UnclaimedAchievement
+                    {
+                        AchievementId = achievement.Id,
+                        EmailAddress = request.Email,
+                    });
+                }
             }
 
             await _dbContext.SaveChangesAsync(cancellationToken);

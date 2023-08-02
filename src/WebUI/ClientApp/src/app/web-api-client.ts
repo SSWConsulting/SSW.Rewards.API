@@ -3043,6 +3043,7 @@ export class AchievementAdminViewModel implements IAchievementAdminViewModel {
     code?: string;
     type?: AchievementType;
     isArchived?: boolean | undefined;
+    integrationId?: string | undefined;
 
     constructor(data?: IAchievementAdminViewModel) {
         if (data) {
@@ -3061,6 +3062,7 @@ export class AchievementAdminViewModel implements IAchievementAdminViewModel {
             this.code = _data["code"];
             this.type = _data["type"];
             this.isArchived = _data["isArchived"];
+            this.integrationId = _data["integrationId"];
         }
     }
 
@@ -3079,6 +3081,7 @@ export class AchievementAdminViewModel implements IAchievementAdminViewModel {
         data["code"] = this.code;
         data["type"] = this.type;
         data["isArchived"] = this.isArchived;
+        data["integrationId"] = this.integrationId;
         return data;
     }
 }
@@ -3090,6 +3093,7 @@ export interface IAchievementAdminViewModel {
     code?: string;
     type?: AchievementType;
     isArchived?: boolean | undefined;
+    integrationId?: string | undefined;
 }
 
 export class CreateAchievementCommand implements ICreateAchievementCommand {
