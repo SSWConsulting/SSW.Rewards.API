@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentEmail.Graph", "src\Fl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Technical Debt", "Technical Debt", "{0707752B-446C-4122-986E-0717A068568F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSW.Rewards.Mobile", "src\SSW.Rewards.Mobile\SSW.Rewards.Mobile.csproj", "{C96A23CB-CF17-480B-AE7B-F508295EF347}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSW.Rewards.Mobile", "src\Mobile\SSW.Rewards.Mobile.csproj", "{C96A23CB-CF17-480B-AE7B-F508295EF347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
