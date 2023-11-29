@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentEmail.Graph", "src\Fl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Technical Debt", "Technical Debt", "{0707752B-446C-4122-986E-0717A068568F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSW.Rewards.Mobile", "src\SSW.Rewards.Mobile\SSW.Rewards.Mobile.csproj", "{C96A23CB-CF17-480B-AE7B-F508295EF347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,12 @@ Global
 		{F6E774BC-B951-4C70-BBF5-28BD608A75AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6E774BC-B951-4C70-BBF5-28BD608A75AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6E774BC-B951-4C70-BBF5-28BD608A75AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96A23CB-CF17-480B-AE7B-F508295EF347}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +103,7 @@ Global
 		{C34588D5-E10E-4ED1-83F3-77667B1F6B7C} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}
 		{20313C09-6738-402B-86A2-42B16736EFCD} = {6ED356A7-8B47-4613-AD01-C85CF28491BD}
 		{F6E774BC-B951-4C70-BBF5-28BD608A75AE} = {0707752B-446C-4122-986E-0717A068568F}
+		{C96A23CB-CF17-480B-AE7B-F508295EF347} = {20313C09-6738-402B-86A2-42B16736EFCD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3CB609D9-5D54-4C11-A371-DAAC8B74E430}
